@@ -6,22 +6,23 @@
   <title>백 투 더 퓨처:Back to the future</title>
   <style>
     body {
-      max-width: 1920px;
-      padding:0 100px;
       margin: 0 auto;
       font-family: sans-serif;
       color: black;
+      padding-left: 20px;   
+      padding-right: 20px;   
     }
 
         #article 
-    { padding: 0 50px;
+    { max-width: 1440px;
+      padding: 0 50px;
       margin: 0 auto;
       min-width: 600px;
       min-height: 1000px;
     }
 
     #header {
-      max-width: 1640px;
+      max-width:1640px;
       margin-left: auto;
       margin-right: auto;
       margin-top: 23px;
@@ -65,7 +66,7 @@
     #back-box:hover #back {
       left: 692px;
     }
-    #back-text:hover {
+    #back-text:hover, #popupToggle:hover  {
       color: #00A1E9;
     }
 
@@ -198,6 +199,42 @@
       color: #00A1E9;
     }
 
+.popup-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+#popupToggle {
+  cursor: pointer;
+}
+
+.popup-menu {
+  display: none;
+  position: absolute;
+  top: 120%; /* 아래로 살짝 내려감 */
+  left: 0;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  padding: 12px 0;
+  min-width: 260px;
+}
+
+.popup-menu a {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: black;
+  font-size: 14pt;
+  transition: background 0.2s;
+}
+
+.popup-menu a:hover {
+  background-color: #f2f2f2;
+  color: #00A1E9;
+}
+
 
 
     @media (prefers-color-scheme: dark) {
@@ -246,11 +283,22 @@ footer {
 </head>
 <body>
 
-  <div id="header">
-    <h1 style="float: left;">백 투 더 퓨처:</h1>
-    <h1 style="float: right;">한국 현대미술의 동시대성 탐험기</h1>
-    <div style="clear: both;"></div>
+<div id="header">
+  <div class="popup-wrapper">
+    <h1 id="popupToggle" style="float: left;">백 투 더 퓨처:</h1>
+    <div id="popupMenu" class="popup-menu">
+      <a href="mmca.html">MMCA 소장품 특별전</a>
+      <a href="backtothefuture.html">백 투 더 퓨처</a>
+      <a href="https://yangseoyeong.github.io/seoyeongconding/">시대 변환과 미술 지형 변동</a>
+      <a href="ssz_final.html">불일치의 활성화</a>
+      <a href="https://seokgeunn.github.io/my-web-page/">이질성과 그 비평적 시공간</a>
+      <a href="jhj.html">미래 간섭 혹은 미래 개입</a>
+    </div>
   </div>
+  <h1 style="float: right;">한국 현대미술의 동시대성 탐험기</h1>
+  <div style="clear: both;"></div>
+</div>
+
 
 
   <section id="article">
@@ -276,7 +324,7 @@ footer {
   <span id="the-text1">시대 변환과 미술 지형 변동</span>
     </a>
 
-  <a href="ssz.html" style="color: inherit; display: inline-block;">
+  <a href="ssz_final.html" style="color: inherit; display: inline-block;">
   <span id="the-text2">불일치의 활성화</span>
   </a>
 
@@ -287,7 +335,7 @@ footer {
   
   <img id="future" src="https://i.imgur.com/xlX0Y8m.png" alt="Future">
     
-    <a href="psg.html" style="color: inherit; display: inline-block;">
+    <a href="https://seokgeunn.github.io/my-web-page/" style="color: inherit; display: inline-block;">
   <span id="future-text1">이질성과 그 비평적 시공간</span>
     </a>
 
@@ -308,6 +356,22 @@ footer {
               <div id="jhj">전휘재</div>
             </div>
         </footer>
+
+<script>
+  const toggleBtn = document.getElementById("popupToggle");
+  const popup = document.getElementById("popupMenu");
+
+  toggleBtn.addEventListener("click", () => {
+    popup.style.display = (popup.style.display === "block") ? "none" : "block";
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!toggleBtn.contains(e.target) && !popup.contains(e.target)) {
+      popup.style.display = "none";
+    }
+  });
+</script>
+
 
 </body>
 </html>
