@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>불일치의 활성화</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      color: black;
+      margin: 0 auto;
+      padding-left: 20px;   
+      padding-right: 20px;    
+    }
+
+
+    /* header */ 
+    .header 
+        { margin-top: 23px;   /* 제목 상단 여백 */
+          margin-left: auto;    /* 좌우 여백 */
+          margin-right: auto;   /* 좌우 여백 */
+        }
+
+    h1, #lefttext, #righttext {
+      font-size: clamp(24px, 4vw, 34pt);
+      font-weight: bold;
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+
+    #container {
+      max-width: 1440px;
+      padding: 0 50px;
+      margin: 0 auto;
+}
+  
+    /* 제목 */
+    #title{ /* 불일치의 활성화 */
+      font-size: clamp(20px, 3vw, 25pt);    /* 반응형 텍스트 크기 */
+      font-weight: bold;    /* 텍스트 굵기 */
+      letter-spacing: -0.02em;    /* 반응형 자간 */
+      margin-top: 64px;   /* 부제목 상단 여백 */
+      margin-bottom: 0px;   /* 하단 여백 제거 */
+    }
+
+    #titleenglish { /*Energizing Nonconformity */
+      font-size: clamp(18px, 2.5vw, 20pt);     /* 반응형 텍스트 크기 */
+      font-weight: 500;   /* 텍스트 굵기 */
+      font-family: Helvetica, sans-serif;   /* 폰트 */
+      letter-spacing: -0.02em;   /* 반응형 자간 */
+      margin-top: 5px;   /* 소제목 상단 여백 (부제목과의 행간) */
+      margin-bottom: 0px;  
+}
+
+                    .slider-wrapper {
+                      position: relative;
+                      width: 100%;
+                      max-width: 750px;
+                      margin: 30px auto 50px auto;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                    }
+                    
+                    .slider-arrow {
+                      background: rgba(0,0,0,0.08);
+                      border: none;
+                      border-radius: 50%;
+                      width: 32px;
+                      height: 32px;
+                      font-size: 18px;
+                      color: #222;
+                      cursor: pointer;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      position: absolute;
+                      top: 50%;
+                      transform: translateY(-50%);
+                      z-index: 2;
+                      transition: background 0.2s;
+                    }
+                    .slider-arrow.left { left: -40px; }
+                    .slider-arrow.right { right: -40px; }
+                    .slider-arrow:hover { background: rgba(0,0,0,0.18); }
+                    .slider-image-container {
+                      position: relative;
+                      width: 100%;
+                      max-width: 750px;
+                      max-height: 510px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                    }
+                    .slider-image {
+                      width: 100%;
+                      max-width: 750px;
+                      max-height: 510px;
+                      object-fit: contain;
+                      border-radius: 8px;
+                      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+                      background: #f6f6f6;
+                      cursor: pointer;
+                      transition: box-shadow 0.2s, transform 0.3s;
+                      display: block;
+                    }
+                    .slider-image:hover {
+                      transform: scale(1.02);
+                    }
+                    .audio-overlay {
+                      position: absolute;
+                      left: 0;
+                      top: 0;
+                      width: 100%;
+                      height: 100%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      pointer-events: none;
+                    }
+                    .audio-play-btn {
+                      display: none;
+                      pointer-events: auto;
+                      background: rgba(27, 163, 230, 0.9);
+                      border: none;
+                      border-radius: 50%;
+                      width: 68px;
+                      height: 68px;
+                      font-size: 38px;
+                      color: #fff;
+                      cursor: pointer;
+                      align-items: center;
+                      justify-content: center;
+                      transition: background 0.2s;
+                      z-index: 3;
+                    }
+                    .slider-image-container:hover .audio-play-btn {
+                      display: flex;
+                    }
+                    .custom-controls {
+                      display: none;
+                      position: absolute;
+                      left: 0;
+                      bottom: 0;
+                      width: 100%;
+                      max-width: 750px;
+                      background: rgba(255,255,255,0.5);
+                      border-radius: 0 0 8px 8px;
+                      padding: 16px 18px 12px 18px;
+                      box-sizing: border-box;
+                      z-index: 4;
+                      align-items: center;
+                      gap: 12px;
+                      pointer-events: auto;
+                    }
+
+                    .custom-controls.show {
+                      display: flex;
+                      animation: fadeIn 0.2s;
+                    }
+                    @keyframes fadeIn {
+                      from { opacity: 0; transform: translateY(20px);}
+                      to { opacity: 1; transform: translateY(0);}
+                    }
+
+                    .custom-controls button {
+                      background: none;
+                      border: none;
+                      padding: 0;
+                      cursor: pointer;
+                      font-size: 28px;
+                      color: rgb(27, 163, 230);
+                      margin-right: 8px;
+                    }
+
+                    .progress-bar {
+                      flex-grow: 1;
+                      height: 10px;
+                      background: rgba(27, 163, 230, 0.2);
+                      border-radius: 5px;
+                      overflow: hidden;
+                      position: relative;
+                      margin-right: 16px;
+                      cursor: pointer;
+                    }
+
+                    .progress-fill {
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      height: 100%;
+                      background: rgb(27, 163, 230);
+                      width: 0;
+                    }
+                    .volume-control {
+                      width: 80px;
+                      height: 10px;
+                      background: rgba(27, 163, 230, 0.2);
+                      border-radius: 5px;
+                      overflow: hidden;
+                      position: relative;
+                      cursor: pointer;
+                      margin-left: 8px;
+                    }
+
+                    .volume-fill {
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      height: 100%;
+                      background: rgb(27, 163, 230);
+                      width: 100%;
+                    }
+
+    /* 수평선 */
+    hr {
+      margin: 18px 0 24px 0;
+      border: none;
+      border-top: 2px solid #ccc;
+      clear: both;
+    }
+
+   /* 본문 */
+    #articlekr {
+      font-size: clamp(16px, 2vw, 20pt);    /* 반응형 텍스트 크기 */
+      font-weight: 500;   /* 텍스트 굵기 */
+      line-height: 1.6;   /* 반응형 행간 */
+      letter-spacing: -0.5px;   /* 반응형 자간 */
+      margin-bottom: 0px;   /* 여백 제거 */
+      margin-top: 0px;    /* 여백 제거 */
+    }
+    
+    #articleen {
+      margin-top: 40px;   /* 문단 여백 */
+      display: block;
+      font-size: clamp(14px, 1.8vw, 18pt);    /* 반응형 텍스트 크기 */
+      font-family: Helvetica, sans-serif;   /* 폰트 */
+      font-weight: 400;   /* 텍스트 굵기 */
+      line-height: 1.6;   /* 반응형 행간 */
+      letter-spacing: -0.015em;   /* 반응형 자간 */
+      color: #454545;
+    }
+
+    /* footer 스타일 */
+    footer {
+      margin: 0 auto;
+      margin-top: 300px;
+      margin-bottom: 23px;
+      text-align: center;
+    }
+    #footertitle{
+      font-weight: bold;
+      font-size: clamp(10pt, 1vw, 16pt);
+    }
+    #name {
+      font-weight: 400;
+  font-size: clamp(8pt, 1vw, 12pt);
+      margin-top: 8px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    #name > #ssz{
+  font-size: clamp(10pt, 1vw, 14pt);
+      line-height: 1;
+      text-decoration: underline;
+    }
+
+
+              /* 다크모드 */
+              @media (prefers-color-scheme: dark) {
+                body {
+                  background-color: #111;
+                  color: #a9a9a9;
+                }
+
+                .slider-arrow {
+                  background: rgba(255,255,255,0.08);
+                  color: #bbb;
+                }
+                .slider-arrow:hover {
+                  background: rgba(255,255,255,0.18);
+                }
+
+                .slider-image {
+                  background: #222;
+                  box-shadow: 0 2px 12px rgba(0,0,0,0.28);
+                }
+
+                .custom-controls {
+                  background: rgba(25,25,25,0.7);
+                }
+                hr {
+                  border-top: 2px solid #333;
+                }
+
+                /* 본문 영어부분 */
+                #articleen { 
+                  color: #7c7c7c !important;
+                }
+              }
+
+  @media screen and (max-width: 768px) {
+  body {
+    padding: 0 20px;
+  }
+
+  #container {
+    padding: 0 10px;
+  }
+}
+
+html, body {
+  overflow-x: hidden;
+}
+  </style>
+</head>
+
+
+<body>
+  <!-- 백 투 더 퓨처 헤더 -->
+      <div class="header">
+          <h1 style="float: left;">
+          <a href="https://woojinnchoi.github.io/backtothefuture/" style="color: inherit; text-decoration: none;">
+            백 투 더 퓨처:
+          </a>
+        </h1>
+        <h1 style="float: right;">
+          <a href="https://woojinnchoi.github.io/backtothefuture/" style="color: inherit; text-decoration: none;">
+            한국 현대미술의 동시대성 탐험기
+          </a>
+        </h1>
+        <div style="clear: both;"></div>
+        </div>
+
+
+  <div id="container">
+          <div id="title">불일치의 활성화</div>
+          <div id="titleenglish">Energizing Nonconformity</div>
+
+          <!-- 이미지 슬라이더 -->
+          <div class="slider-wrapper">
+            <button class="slider-arrow left" onclick="changeSlide(-1)" aria-label="이전 사진">&#8592;</button>
+            <div class="slider-image-container" id="sliderImageContainer">
+              <img id="sliderImg" class="slider-image" src="https://www.mmca.go.kr/upload/exhibition/2023/06/dse_2023061405293385216959.jpg" alt="전시 이미지">
+
+
+              <!-- 오디오 플레이 오버레이 -->
+              <div class="audio-overlay">
+                <button id="audioPlayBtn" class="audio-play-btn" onclick="showControls(event)">
+                  ▶
+                </button>
+                <div id="customControls" class="custom-controls">
+                  <button id="playPauseBtn" onclick="togglePlayPause()">▶</button>
+                  <div class="progress-bar" id="progressBar" onclick="seek(event)">
+                    <div class="progress-fill" id="progressFill"></div>
+                  </div>
+                  <div class="volume-control" id="volumeControl" onclick="setVolume(event)">
+                    <div class="volume-fill" id="volumeFill"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="slider-arrow right" onclick="changeSlide(1)" aria-label="다음 사진">&#8594;</button>
+          </div>
+
+          <!-- 가로선 -->
+          <hr>
+
+
+          <!-- 설명 -->
+          <div id="articlekr">
+            동시대성은 단순한 시간적 차원의 개념이 아니라 기존의 헤게모니 구조에 대한 문제 제기와 관련하여 다루어질 때,<br>
+            이를 설명할 수 있는 대표적인 미디어 예술의 사례로 볼 수 있다.<br>
+            우리 사회에서 비디오와 복제적 매체가 활성화된 1990년대 말, 2000년대 초로 볼 수 있는 언어는 대중, 영상, 문화의 시대 맥락과 맞닿아 있다.<br>
+            비선형적 이야기 구조, 분절적 화면 구성, 시각적 감각, 시청각적 감각의 뒤틀림 등도 지금과 같은 미디어 영상 시대에는 더 이상 낯설지 않으며 이들에 적합한 본격적인 논의가 시작된 배경은 1990년대 후반쯤로 볼 수 있다.<br>
+            이번 전시에서는 김세진, 박화영, 류병화, 함양아 등의 2010년대 작품 미디어 작업, 그리고 김영나, 남화연, 안준기와 같이 미디어와의 관계성와 관련한 동시대 작가들의 작품들을 통해 한국 동시대 미술의 흐름을 관찰할 기회를 제공하고자 한다.
+          </div>
+
+          <!-- 영문 설명 (다크모드 적용을 위해 id="articleen" 추가) -->
+          <div id="articleen">
+            If “contemporaneity” is approached as something more than a mere temporal concept,<br>
+            as a matter connected with the problematization of existing hegemonic structures,<br>
+            a particularly good example illustrating this can be found in media-based artwork.<br>
+            The period between the late 1990s and early 2000s is often viewed as the true blooming of Korean single channel video works,<br>
+            because of the relations it bears to the historical context in terms of popular environment, video, and culture.<br>
+            In an age of media video such as today, approaches such as non-linear narrative structure, segmented screens, temporal refraction,<br>
+            and skewing of visual and auditory sensations no longer seem strange. The late 1990s is perhaps the period in which this sort of vocabulary first became prevalent in artwork.<br>
+            Exploring the early media-based work of artists such as Kim Sejin, Park Hwa Young, Ryu Biho, and Ham Yang Ah as well as the 2010s-era media artwork of figures like Kim Ayoung, Nam Hwayeon, and An Jungju,<br>
+            the exhibition invites the viewer in observing the currents in Korean contemporary art, through the creations of contemporary artists who relate to disparate and complex temporal and spatial networks.
+          </div>
+
+
+          <audio id="slideAudio"></audio>
+
+  </div>
+
+
+
+  <!-- footer -->
+        <footer>
+            <div id="footertitle">제작</div>
+            <div id="name">
+              <div id="cwj">최우진</div>
+              <div id="ysy">양서영</div>
+              <div id="ssz">손승재</div>
+              <div id="psg">박석근</div>
+              <div id="jhj">전휘재</div>
+            </div>
+        </footer>
+
+
+
+  <script>
+    const images = [
+      {
+        src: "https://www.mmca.go.kr/upload/exhibition/2023/06/dse_2023061405293385216959.jpg",
+        audio: "https://video.mmca.go.kr:8888/upload/encoding/audio/2023/06/08308b29d1cf40fb9a0b349bac9e3c7e_media.mp3"
+      },
+      {
+        src: "https://www.mmca.go.kr/upload/exhibition/2023/06/dse_2023061405232844515681.jpg",
+        audio: "https://video.mmca.go.kr:8888/upload/encoding/audio/2023/06/b55da60a6e9b423eb8776cff15fd163a_media.mp3"
+      },
+      {
+        src: "https://www.mmca.go.kr/upload/exhibition/2023/06/dse_2023061405235955919973.jpg",
+        audio: "https://video.mmca.go.kr:8888/upload/encoding/audio/2023/06/a1826af34eeb40d69e5c501c96eb5cab_media.mp3"
+      },
+      {
+        src: "https://www.mmca.go.kr/upload/exhibition/2023/06/dse_2023061405242139714957.jpg",
+        audio: "https://video.mmca.go.kr:8888/upload/encoding/audio/2023/06/0043bcc54cc9438b9458b7db750e6e0c_media.mp3"
+      }
+    ];
+    let current = 0;
+    const audio = document.getElementById('slideAudio');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    const progressBar = document.getElementById('progressBar');
+    const progressFill = document.getElementById('progressFill');
+    const volumeControl = document.getElementById('volumeControl');
+    const volumeFill = document.getElementById('volumeFill');
+    const customControls = document.getElementById('customControls');
+    const audioPlayBtn = document.getElementById('audioPlayBtn');
+    let isDraggingProgress = false;
+    let isDraggingVolume = false;
+
+    function showImage(idx) {
+      const img = document.getElementById('sliderImg');
+      current = (idx + images.length) % images.length;
+      img.src = images[current].src;
+      audio.src = images[current].audio;
+      playPauseBtn.textContent = '▶';
+      hideControls();
+    }
+    function changeSlide(dir) {
+      showImage(current + dir);
+      stopAudio();
+    }
+    function showControls(e) {
+      if (e) e.stopPropagation();
+      customControls.classList.add('show');
+      audioPlayBtn.style.display = 'none';
+      updateProgress();
+    }
+    function hideControls() {
+      customControls.classList.remove('show');
+      audioPlayBtn.style.display = '';
+    }
+    function togglePlayPause() {
+      if (audio.paused) {
+        audio.play();
+        playPauseBtn.textContent = '❚❚';
+      } else {
+        audio.pause();
+        playPauseBtn.textContent = '▶';
+      }
+    }
+    function updateProgress() {
+      if (!audio.duration) return;
+      const percent = (audio.currentTime / audio.duration) * 100;
+      progressFill.style.width = percent + '%';
+    }
+    function seek(e) {
+      const rect = progressBar.getBoundingClientRect();
+      const percent = (e.clientX - rect.left) / rect.width;
+      audio.currentTime = percent * audio.duration;
+    }
+    function setVolume(e) {
+      const rect = volumeControl.getBoundingClientRect();
+      let percent = (e.clientX - rect.left) / rect.width;
+      percent = Math.max(0, Math.min(1, percent));
+      audio.volume = percent;
+      volumeFill.style.width = (percent * 100) + '%';
+    }
+    function stopAudio() {
+      audio.pause();
+      audio.currentTime = 0;
+      playPauseBtn.textContent = '▶';
+      hideControls();
+    }
+    audio.addEventListener('timeupdate', updateProgress);
+    audio.addEventListener('ended', function() {
+      playPauseBtn.textContent = '▶';
+      hideControls();
+    });
+    progressBar.addEventListener('mousedown', function(e) {
+      isDraggingProgress = true;
+      seek(e);
+    });
+    document.addEventListener('mousemove', function(e) {
+      if (isDraggingProgress) seek(e);
+    });
+    document.addEventListener('mouseup', function() {
+      isDraggingProgress = false;
+    });
+    volumeControl.addEventListener('mousedown', function(e) {
+      isDraggingVolume = true;
+      setVolume(e);
+    });
+    document.addEventListener('mousemove', function(e) {
+      if (isDraggingVolume) setVolume(e);
+    });
+    document.addEventListener('mouseup', function() {
+      isDraggingVolume = false;
+    });
+    document.addEventListener('click', function(e) {
+      const container = document.getElementById('sliderImageContainer');
+      if (!container.contains(e.target)) {
+        hideControls();
+      }
+    });
+    window.onload = function() {
+      showImage(0);
+      audio.volume = 1;
+      volumeFill.style.width = '100%';
+    };
+  </script>
+</body>
+</html>
+

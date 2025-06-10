@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>MMCA 소장품 특별전</title>
+  <style>
+    
+    body 
+    { font-family: sans-serif;
+      color: black;
+      padding-left: 20px;   /* 반응형 여백 */
+      padding-right: 20px;    /* 반응형 여백 */
+    }
+
+    .header 
+    { max-width: 1640px;    /* 제목 여백 설정 */
+      margin-top: 23px;   /* 제목 상단 여백 */
+      margin-left: auto;    /* 좌우 여백 */
+      margin-right: auto;   /* 좌우 여백 */
+    }
+
+    h1 
+    { font-size: clamp(24px, 4vw, 34pt);    /* 반응형 텍스트 크기 */
+      font-weight: bold;    /* 텍스트 굵기 */
+      letter-spacing: -0.02em;    /* 반응형 자간 */
+      margin-bottom: 0;    /* 하단 여백 제거 */
+      margin-top: 0;     /* 상단 여백 제거 */
+    }
+
+    h2 
+    { font-size: clamp(20px, 3vw, 25pt);    /* 반응형 텍스트 크기 */
+      font-weight: bold;    /* 텍스트 굵기 */
+      letter-spacing: -0.02em;    /* 반응형 자간 */
+      margin-top: 64px;   /* 부제목 상단 여백 */
+      margin-bottom: 0px;   /* 하단 여백 제거 */
+    }
+
+    h3 
+    { font-size: clamp(18px, 2.5vw, 20pt);     /* 반응형 텍스트 크기 */
+      font-weight: 500;   /* 텍스트 굵기 */
+      font-family: Helvetica, sans-serif;   /* 폰트 */
+      lletter-spacing: -0.02em;   /* 반응형 자간 */
+      margin-top: 5px;   /* 소제목 상단 여백 (부제목과의 행간) */
+      margin-bottom: 0px;   /* 하단 여백 제거 */
+    }
+
+    img 
+    { display: flex;
+      justify-content: center;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 60%;
+      height: auto;
+      margin-top: 50px;   /* 이미지 상단 여백 */
+      margin-bottom: 70px;    /* 이미지 하단 여백 */
+    }
+
+    p 
+    { font-size: clamp(16px, 2vw, 20pt);    /* 반응형 텍스트 크기 */
+      font-weight: 500;   /* 텍스트 굵기 */
+      line-height: 1.6;   /* 반응형 행간 */
+      letter-spacing: -0.5px;   /* 반응형 자간 */
+      margin-bottom: 0px;   /* 여백 제거 */
+      margin-top: 0px;    /* 여백 제거 */
+    }
+
+    span 
+    { margin-top: 60px;   /* 문단 여백 */
+      display: block;
+      font-size: clamp(14px, 1.8vw, 18pt);    /* 반응형 텍스트 크기 */
+      font-family: Helvetica, sans-serif;   /* 폰트 */
+      font-weight: 400;   /* 텍스트 굵기 */
+      line-height: 1.6;   /* 반응형 행간 */
+      letter-spacing: -0.015em;   /* 반응형 자간 */
+      color: #454545;
+    }
+
+    .text-columns
+    { display: flex;
+      flex-direction: row;
+      gap: 40px;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    .column 
+    { flex: 1;
+      min-width: 300px;
+    }
+
+    #article 
+    { max-width: 1440px;    /* 본문 여백 설정 */
+      margin-left: auto;     /* 좌우 여백 */
+      margin-right: auto;    /* 좌우 여백 */
+      min-width: 600px;
+      padding-left: 20px;    /* 반응형 여백 */
+      padding-right: 20px;    /* 반응형 여백 */
+    }
+
+    footer {
+    max-width: 1920px;
+    margin-top: 300px;
+    margin-bottom: 23px;
+    text-align: center;
+}
+
+#footertitle{
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: bold;
+  font-size: clamp(10pt, 1vw, 16pt);
+
+}
+
+#name {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: regular;
+  font-size: 12pt;
+  margin-top: 8px;
+  display:flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+#name > #cwj{
+  font-size: 14pt;
+  line-height: 1;
+  text-decoration: underline;
+} 
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #111;
+    color:#a9a9a9;
+  }
+
+/* 본문 영어부분 */
+  #articleen { 
+    color: #7c7c7c !important;
+}
+
+}
+
+ @media screen and (max-width: 768px) {
+  body {
+    padding: 0 20px;
+  }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="header">
+    <h1 style="float: left;">
+    <a href="https://woojinnchoi.github.io/backtothefuture/" style="color: inherit; text-decoration: none;">
+      백 투 더 퓨처:
+    </a>
+  </h1>
+  <h1 style="float: right;">
+    <a href="https://woojinnchoi.github.io/backtothefuture/" style="color: inherit; text-decoration: none;">
+      한국 현대미술의 동시대성 탐험기
+    </a>
+  </h1>
+  <div style="clear: both;"></div>
+  </div>
+
+
+  <section id="article">
+
+    <h2>MMCA 소장품 특별전</h2>
+    <h3>The Selected MMCA Collection</h3>
+    <img id="the" src="https://i.imgur.com/CIVGkNt.png">
+
+    <div class="text-columns">
+        
+      <p>
+        MMCA 소장품 특별전 《백 투 더 퓨처: 한국 현대미술의 동시대성<br>
+        탐험기》는 국립현대미술관이 수집한 소장품을 대중에 선보이는<br>
+        전시이다. 이번 전시는 2018년부터 2022년까지 지난 5년 동안<br>
+        미술관이 수집한 작품들을 살펴보면서 주목할 만한 특징을 확인하고<br>
+        이를 집중적으로 들여다보았다. 미술관의 작품 수집 정책과 방향에<br>
+        따라 매년 시기•장르•주제별로 고른 수집 분포를 보이는바,<br>
+        미술관은 지난 5년 동안에도 다양한 시기•장르 주제의 작품을<br>
+        모았다. 그중 해당 수집 기간 눈에 띄는 특징 중 하나로,<br>
+        공성훈, 김범, 박이소 등을 포함,1990년대라는 시대전환기를<br>
+        예술적 토양으로 삼아 소위 한국 현대미술의 동시대적 양상을<br>
+        드러낸 작가의 작품이 다수 수집되었다는 점을 들 수 있다.<br>
+        이에 시기적으로 1990년대를 중심으로 1980년대 후반부터<br>
+        2010년대까지를 상호 영향 범위로 설정하고, 1980년대 말<br>
+        1990년대 초 작가적 정체성을 구축한 작가들의 당시 작업과<br>
+        최근으로 이어진 그들의 작품 활동을 소개하고자 한다.
+      </p>
+        
+
+        
+      <p>
+        그런가 하면 20세기 말, 21세기 초 아날로그와 디지털이 교차,<br>
+        혼재하던 시기를 관통하며 성장하고, 한국 미술 현장에 등장하여<br>
+        지금 우리 현대미술계 주요 작가로 자리매김한 작가들의 작품들도<br>
+        선보인다. 또한 그들의 작품을 통해서 확인되고 지금도 이어지고<br>
+        있는 한국 현대미술의 동시대성의 맥락 속에서 주목할 작가들의<br>
+        작품도 마주하는 기회를 제공하고자 한다. 해당 시기 주요<br>
+        작품들에 대한 수집은 여전히 진행 중이고, 관련해서 이미 수집된<br>
+        소장품을 모두 이 자리에서 소개할 수는 없는 여건이나 이번<br>
+        전시를 통해 그리 멀지 않은 과거이지만 역사화의 단계로<br>
+        조속히 유입되어야 하는 시기의 한국미술을 새삼 확인하는<br>
+        계기를 마련하고자 한다.
+      </p>
+        </div>
+
+
+    <div class="text-columns">
+      <div class="column">
+      <span>
+        Back to the Future: An Exploration of Contemporaneity of Korean Contemporary Art is an exhibition organized with the intention of sharing artwork from the collection of the National Museum of Modern and Contemporary Art, Korea (MMCA) with the public. Covering artworks acquired by the museum over a five-year period, from 2018 to 2022, the exhibition thoroughly examines the characteristics of noteworthy acquisitions from this time. In accordance with MMCA acquisition policies and directions, the artwork acquired each year has shown an even distribution in terms of era, genre, and theme with pieces acquired over the recent five-years being no exception. One of the most important characteristics observed in these particular acquisitions is that a large number of works are from the artists who demonstrate the contemporaneity of Korean contemporary art, based on the transitional historical period of the 1990s, including figures such as Kong Sunghun, Kim Beom, and Bahc Yiso. While the chronological emphasis may be on the 1990s, the exhibition includes works ranging from the late 1980s to 2010 in its scope of influence; in doing so, it hopes to highlight the time in which many of the featured artists were establishing their artistic identity-between the late 1980s and early 1990s-along with some of their more recent artistic activities.
+      </span>
+    </div>
+        
+      <div class="column">
+      <span>
+        Also presented among the museum’s acquisitions are works by artists who grew up amid a climate, in the late 20th and early 21st centuries, that saw the intersection and coexistence of analog and digital. Later emerging in the scene, they have since established themselves as important presences in the Korean contemporary art world. Furthermore, the exhibition seeks to provide viewers with the opportunity to observe works by artists who, back then, contributed notably to the creation of the context behind the contemporaneity of Korean contemporary art; this is evident in works created by currently practicing artists in the present day. Major artworks from this period are still being added to the museum’s collection, and while it is impossible to show all previously acquired works here, the exhibition, through the selected artists and artworks, offers a chance to reexamine Korean art during a period that, while belonging to the not-too distant past, still warrants being historicized.
+      </span>
+      </div>
+    </div>
+
+            <footer>
+            <div id="footertitle">제작</div>
+            <div id="name">
+              <div id="cwj">최우진</div>
+              <div id="ysy">양서영</div>
+              <div id="ssz">손승재</div>
+              <div id="psg">박석근</div>
+              <div id="jhj">전휘재</div>
+            </div>
+        </footer>
+
+  </section>
+
+</body>
+</html>

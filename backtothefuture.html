@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>백 투 더 퓨처</title>
+  <style>
+  
+   body 
+    { font-family: sans-serif;
+      color: black;
+      padding-left: 20px;   /* 반응형 여백 */
+      padding-right: 20px;    /* 반응형 여백 */
+    }
+
+    .header 
+    { max-width: 1640px;    /* 제목 여백 설정 */
+      margin-top: 23px;   /* 제목 상단 여백 */
+      margin-left: auto;    /* 좌우 여백 */
+      margin-right: auto;   /* 좌우 여백 */
+    }
+
+    h1 
+    { font-size: clamp(24px, 4vw, 34pt);    /* 반응형 텍스트 크기 */
+      font-weight: bold;    /* 텍스트 굵기 */
+      letter-spacing: -0.02em;    /* 반응형 자간 */
+      margin-bottom: 0;    /* 하단 여백 제거 */
+      margin-top: 0;     /* 상단 여백 제거 */
+    }
+
+    h2 
+    { font-size: clamp(20px, 3vw, 25pt);    /* 반응형 텍스트 크기 */
+      font-weight: bold;    /* 텍스트 굵기 */
+      letter-spacing: -0.02em;    /* 반응형 자간 */
+      margin-top: 64px;   /* 부제목 상단 여백 */
+      margin-bottom: 0px;   /* 하단 여백 제거 */
+    }
+
+    h3 
+    { font-size: clamp(18px, 2.5vw, 20pt);     /* 반응형 텍스트 크기 */
+      font-weight: 500;   /* 텍스트 굵기 */
+      font-family: Helvetica, sans-serif;   /* 폰트 */
+      lletter-spacing: -0.02em;   /* 반응형 자간 */
+      margin-top: 5px;   /* 소제목 상단 여백 (부제목과의 행간) */
+      margin-bottom: 0px;   /* 하단 여백 제거 */
+    }
+
+    img 
+    { display: flex;
+      justify-content: center;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 60%;
+      height: auto;
+      margin-top: 50px;   /* 이미지 상단 여백 */
+      margin-bottom: 70px;    /* 이미지 하단 여백 */
+    }
+
+    p 
+    { font-size: clamp(16px, 2vw, 20pt);    /* 반응형 텍스트 크기 */
+      font-weight: 500;   /* 텍스트 굵기 */
+      line-height: 1.6;   /* 반응형 행간 */
+      letter-spacing: -0.5px;   /* 반응형 자간 */
+      margin-bottom: 0px;   /* 여백 제거 */
+      margin-top: 0px;    /* 여백 제거 */
+    }
+
+    span 
+    { margin-top: 60px;   /* 문단 여백 */
+      display: block;
+      font-size: clamp(14px, 1.8vw, 18pt);    /* 반응형 텍스트 크기 */
+      font-family: Helvetica, sans-serif;   /* 폰트 */
+      font-weight: 400;   /* 텍스트 굵기 */
+      line-height: 1.6;   /* 반응형 행간 */
+      letter-spacing: -0.015em;   /* 반응형 자간 */
+      color: #454545;
+    }
+
+    .text-columns
+    { display: flex;
+      flex-direction: row;
+      gap: 40px;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    .column 
+    { flex: 1;
+      min-width: 300px;
+    }
+
+    #article 
+    { max-width: 1440px;    /* 본문 여백 설정 */
+      margin-left: auto;     /* 좌우 여백 */
+      margin-right: auto;    /* 좌우 여백 */
+      min-width: 600px;
+      padding-left: 20px;    /* 반응형 여백 */
+      padding-right: 20px;    /* 반응형 여백 */
+    }
+
+    footer {
+    max-width: 1920px;
+    margin-top: 300px;
+    margin-bottom: 23px;
+    text-align: center;
+}
+
+#footertitle{
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: bold;
+  font-size: clamp(10pt, 1vw, 16pt);
+
+}
+
+#name {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: regular;
+  font-size: 12pt;
+  margin-top: 8px;
+  display:flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+#name > #cwj{
+  font-size: 14pt;
+  line-height: 1;
+  text-decoration: underline;
+} 
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #111;
+    color:#a9a9a9;
+  }
+
+/* 본문 영어부분 */
+  #articleen { 
+    color: #7c7c7c !important;
+}
+
+}
+
+ @media screen and (max-width: 768px) {
+  body {
+    padding: 0 20px;
+  }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="header">
+    <h1 style="float: left;">
+    <a href="https://woojinnchoi.github.io/backtothefuture/" style="color: inherit; text-decoration: none;">
+      백 투 더 퓨처:
+    </a>
+  </h1>
+  <h1 style="float: right;">
+    <a href="https://woojinnchoi.github.io/backtothefuture/" style="color: inherit; text-decoration: none;">
+      한국 현대미술의 동시대성 탐험기
+    </a>
+  </h1>
+  <div style="clear: both;"></div>
+  </div>
+
+
+  <section id="article">
+
+    <h2>백 투 더 퓨처: 한국 현대미술의 동시대성 탐험기</h2>
+    <h3>Back to the Future: An Exploration of Contemporaneity in Korean Contemporary Art</h3>
+    <img id="the" src="https://i.imgur.com/8JVohrh.png">
+
+    <div class="text-columns">
+      <div class="column">
+      <p>
+        전시명 '백 투 더 퓨처'는 1985년 개봉한 할리우드 영화 「백 투 더 퓨처」<br>
+        (Back to the Future)와 동명이다. 영화 속 주인공 마티는 1985년을<br>
+        기점으로 타임머신을 타고 30년 전후로 시간여행을 한다. 과거-현재-<br>
+        미래를 이동하며 주인공은 복잡다단한 상황에 얽히고설킨다. 다소<br>
+        선형적인 전개 방식이긴 하나 시공간이 충돌하는 이야기를 담은<br>
+        이 영화가 국내에 개봉된 1987년은 한국 현대미술의 동시대성의<br>
+        맥락이 형성되기 시작한 때로 종종 거론되는 시기이다. 1980년대<br>
+        말부터1990년대는 대내외적으로 급변하는 정치 • 사회 • 경제적<br>
+        상황만큼이나 영화, 음악, 만화 등 대중문화예술이 당시 새로운<br>
+        세대에게 더없이 큰 영향력을 가진 때였다.
+      </p>
+    </div>
+        
+
+      <div class="column">   
+      <p>
+        시대 변환과 맞물려 전개된 전향적 세대 전환은 이 시기의 가장<br>
+        핵심적인 변화라 할 수 있다. 기존 관습이 묻어나지 않고, 이전<br>
+        논리로는 해석되지 않는 현상과 상황을 거리낌 없이 타고 넘는<br>
+        세대의 탄생은 해당 시기를 정의하는 주요 기제이다. 미래로의<br>
+        소환•호출(Back to the Future)에서 미래를 '지금'이라 놓고<br>
+        볼 때, 지금 여기로 소환된 것이 무엇인지는 그 복잡다단한<br>
+        통로를 걷다 보면 만날 수 있을 것이다.
+      </p>
+    </div>
+        </div>
+
+
+    <div class="text-columns">
+      <div class="column">
+      <span>
+        The exhibition shares its title Back to the Future with a Hollywood<br>
+        film released in 1985 (1987 in Korea). The protagonist Marty uses a<br>
+        time machine to travel back 30 years in time from 1985.<br>
+        In his journeys between the past, present, and future, he ends up<br>
+        entangled in a complex Situation. Despite its more or less linear<br>
+        prese-ntation, the film's story deals with clashing times and places.<br>
+        The year of Back to the Future's Korean released in 1987 fell during<br>
+        a period that is often referred to as the starting point for the<br>
+        emergence of "contemporaneity" in Korean contemporary art.<br>
+        Popular culture-especially music, movies, and comics-had an enormous impact on Korean young generation during the late 1980s and 1990s alongside the rapid political, social, and economic<br>
+        transformations occurring in and outside Korea at the time.
+      </span>
+    </div>
+        
+      <div class="column">
+      <span>
+        The progressive generational shift that unfolded with these historical changes may be viewed as the most pivotal transformation of the period. A major mechanism defining the era is the emergence of a generation that unhesitatingly navigated phenomena and circumstances unmarked by previous practices, that which could not be interpreted according to past logic. By following that same complex path, perhaps we can better understand that which is evoked in the present. After all, the "future" seen in Back to the Future is our "today."
+      </span>
+      </div>
+    </div>
+
+<footer>
+            <div id="footertitle">제작</div>
+            <div id="name">
+              <div id="cwj">최우진</div>
+              <div id="ysy">양서영</div>
+              <div id="ssz">손승재</div>
+              <div id="psg">박석근</div>
+              <div id="jhj">전휘재</div>
+            </div>
+        </footer>
+  </section>
+
+</body>
+</html>

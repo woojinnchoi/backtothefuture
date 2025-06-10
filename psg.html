@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>이질성과 그 비평적 시공간</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      color: black;
+      margin: 0 auto;
+      padding-left: 20px;   
+      padding-right: 20px;    
+    }
+
+        /* 다크모드 */
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #111;
+      color:#a9a9a9;
+    }
+
+  /* 본문 영어부분 */
+    span, .right-caption, .left-caption { 
+      color: #7c7c7c !important;
+  }
+  }
+
+    .header {
+      margin-top: 23px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    h1 {
+      font-size: clamp(24px, 4vw, 34pt);
+      font-weight: bold;
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+
+    h2 {
+      font-size: clamp(20px, 3vw, 25pt);
+      font-weight: bold;
+      letter-spacing: -0.02em;
+      margin-top: 64px;
+      margin-bottom: 0;
+    }
+
+    h3 {
+      font-size: clamp(18px, 2.5vw, 20pt);
+      font-weight: 500;
+      font-family: Helvetica, sans-serif;
+      letter-spacing: -0.02em;
+      margin-top: 5px;
+      margin-bottom: 0;
+    }
+
+    p {
+      font-size: clamp(16px, 2vw, 20pt);
+      font-weight: 500;
+      line-height: 1.6;
+      letter-spacing: -0.5px;
+      margin: 0;
+    }
+
+    span {
+      margin-top: 60px;
+      display: block;
+      font-size: clamp(14px, 1.8vw, 18pt);
+      font-family: Helvetica, sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      letter-spacing: -0.015em;
+      color: #454545;
+    }
+
+    .text-columns {
+      display: flex;
+      flex-direction: row;
+      gap: 40px;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      margin: 0;
+    }
+
+    #column {
+      flex: 1;
+      min-width: 300px;
+      margin-top: 150px;
+    }
+
+    .column2 {
+      min-width: 300px;
+    }
+
+    #article {
+      max-width: 1440px;
+      padding: 0 50px;
+      margin: 0 auto;
+}
+
+    .image-with-caption img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .left-caption {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.4;
+      margin-top: 10px;
+    }
+
+    .right-half {
+      margin-top: 100px;
+      width: 540px;
+       width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .right-img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .right-caption {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.4;
+    }
+
+    .image-and-korean-text {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-top: 50px;
+    }
+
+    .image-box {
+      max-width: 640px;
+      flex: 1;
+    }
+
+    .image-box img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .image-box .left-caption {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.4;
+      margin-top: 10px;
+    }
+
+    .image-and-korean-text .column {
+      flex: 1;
+      min-width: 300px;
+    }
+
+
+  footer{
+    margin-top: 300px;
+    margin-bottom: 23px;
+    text-align: center;
+  }
+
+  #footertitle{
+  font-weight: bold;
+  font-size: clamp(10pt, 1vw, 16pt);
+
+  }
+
+  #name {
+  font-weight: regular;
+  font-size: clamp(8pt, 1vw, 12pt);
+  margin-top: 8px;
+  display:flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  }
+
+  #name > #psg{
+  font-size: clamp(10pt, 1vw, 14pt);
+  line-height: 1;
+  text-decoration: underline;
+  } 
+
+  @media screen and (max-width: 768px) {
+  body {
+    padding: 0 20px;
+  }
+
+  #article{
+    padding: 0 10px;
+  }
+}
+
+  </style>
+</head>
+
+<body>
+
+  <div class="header">
+    <h1 style="float: left;">
+    <a href="https://woojinnchoi.github.io/backtothefuture/" style="color: inherit; text-decoration: none;">
+      백 투 더 퓨처:
+    </a>
+  </h1>
+  <h1 style="float: right;">
+    <a href="https://woojinnchoi.github.io/backtothefuture/" style="color: inherit; text-decoration: none;">
+      한국 현대미술의 동시대성 탐험기
+    </a>
+  </h1>
+  <div style="clear: both;"></div>
+  </div>
+
+  <section id="article">
+
+    <h2 style="display: flex; align-items: center; gap: 10px;">
+      이질성과 그 비평적 시공간
+      <button id="play-audio" style="background: none; border: none; cursor: pointer;">
+        🔊
+      </button>
+    </h2>
+    <audio id="audio-player">
+      <source src="https://video.mmca.go.kr:8888/upload/encoding/audio/2023/06/f4b923cfb6ac46a29d61c76ed456dd55_media.mp3" type="audio/mp3">
+      브라우저가 오디오를 지원하지 않습니다.
+    </audio>
+
+    <h3>Heterogeneity and its Critical Time and Space</h3>
+
+    <div class="image-and-korean-text">
+      <div class="image-box">
+        <img src="https://www.mmca.go.kr/upload/exhibition/2023/06/dse_2023061405262915617030.jpg" alt="노재운, God4Saek, 2009">
+        <div class="left-caption">
+          노재운,&lt;버려진&gt;, 2009<br>
+          웹 베이스드 아트, 컬러, 사운드, 국립현대미술관 소장.<br>
+          Rho Jaeoon, God4Saek, 2009, Web based art, color, sound, MMCA collection.
+        </div>
+      </div>
+
+      <div id="column">
+        <p>
+          1990년대 우리 사회는 지난 시기의 숨가쁜 산업화와 근대화를 통한 고도성장의 수혜와 폐해가 교차 충돌하고 있었다. 그리고 전근대와 근대가 해결하지 못한 난제들을 품은 상태에서 근대 '이후'를 맞이하여 서로 다른 시간들이 혼재된 상황을 겪어야 했다. 이에 더해 세계화와 신자유주의의 거센 유입도 있었다. 혼돈과 새로운 역동 속에서 우리 사회는 오히려 명확히 지칭하지, 역사적 현실을 마주하게 되었다. 이번 전시에는 이 시기를 관통하여 성장하며 창작 역량을 구축한 작가들이 포진해 있다.<br> 그야말로 동시대 미술 작가라 명명할 수 있는 이들은 장르와 영역 사이의 관습적 구분에 갇히지 않고, 국내외 변화 흐름을 재빨리 간파하며, 다르게 전개된 경제사회적 조건과 상황을 전략적으로 활용할 줄 알았고, 대중문화사회적 환경을 거침없이 받아들이는 등 복잡다단한 현실의 관계망을 기꺼이 타고 넘나들었다. 2000년대초 본격화되는 우리 동시대 미술 구도 속에서 개별적 정체성을 발현하고 지금까지 그 작업역량을 보여주고 있는 작가, 구동회, 김두진, 김상돈, 노재운, 그리고 금혜원, 노충현, 정재호 등의 작품을 만나보고자 한다.
+        </p>
+      </div>
+    </div>
+
+    <br> <br>
+
+    <div class="right-half">
+      <img class="right-img" src="https://i.imgur.com/8CPfsLy.jpeg" alt="금혜원, 푸른영토-부유하는 섬, 2007(2019년 인화)">
+      <div class="right-caption">
+        금혜원,&lt;푸른영토–부유하는 섬&gt;, 2007(2019년 인화), 잉크젯 디지털 피그먼트 프린트, 70×210cm, 국립현대미술관 소장.<br>
+        KEUM Hyewon, Blue Territory–Floating Islands, 2007 (printed 2019), Digital pigment print on paper, 70×210cm, MMCA collection.
+      </div>
+    </div>
+
+    <div class="text-columns">
+      <div class="column2">
+        <span>
+          Korean society of the 1990s was marked by intersections and clashes between the benefits and drawbacks of the accelerated growth achieved through the rapid industrialization and modernization of the last few decades. Entering the postmodern era, while still facing issues that could not be resolved during the premodern and modern eras, Korea faced an environment in which different time frames were intermingled.<br> Additionally, it was obliged to accept an untrammeled influx of globalization and neoliberalism. Within this dynamic context of chaos and novelty, the geopolitical and historical realities that Korean society faced became, if anything, more clearly defined. Among the artists encountered in this exhibition are some who grew up in and developed their creative capabilities during this period.<br>
+          These figures, during this period, whom we might refer to as “wholly contemporary” artists, were not confined by the conventional distinctions of genre or domain. They were quick to observe local and global trends of transformation, adept at strategically using newly developing economic and social conditions and circumstances, and agile in the resultant but accepting their environment in terms of popular culture and society.<br> In these ways, they willingly navigated a complex web of real–world relationships, encountering pieces by the likes of Koo Donghee, Kim Dujin, Kim Sangdon, Rho Jaeoon, Keum Hyewon, Roh Hoon, and Jang June Hwan, the exhibition attempts to understand how “the contemporary” and “contemporaneity” of the 1990s do not simply refer to a particular historical division, but rather to something closer to a perspective, attitude, or paradigm.
+        </span>
+      </div>
+    </div>
+
+  </section>
+
+  <footer>
+    <div id="footertitle">제작</div>
+            <div id="name">
+              <div id="cwj">최우진</div>
+              <div id="ysy">양서영</div>
+              <div id="ssz">손승재</div>
+              <div id="psg">박석근</div>
+              <div id="jhj">전휘재</div>
+            </div>
+  </footer>
+
+  <script>
+    const button = document.getElementById("play-audio");
+    const audio = document.getElementById("audio-player");
+
+    button.addEventListener("click", () => {
+      if (audio.paused) {
+        audio.play();
+      } else {
+        audio.pause();
+      }
+    });
+  </script>
+
+</body>
+</html>
